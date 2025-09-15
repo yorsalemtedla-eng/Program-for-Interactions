@@ -1,0 +1,38 @@
+# Quiz Game 
+Questions = ("what is 6 + 7",
+             "When is halloween",
+             "what grade would a 11 year old be in",
+             "Which is not a fruit")
+
+Choices = ( ("a. 11" , "b. 12" , "c. 13" , "d. 67"),
+            ("a. 32" , "b. 31" , "c. 29" , "d. 30"),
+            ("a. 7" , "b. 8" , "c. 12" , "d. 6"),
+            ("a. cucumber" , "b. banana" , "c. apple" , "d. strawberry") )
+
+Answers = ("c" , "b" , "d" , "a")
+Guesses = []
+Score = 0
+Question_num = 4
+
+# Quiz Game Layout:
+for question_num in range(len(Questions)):
+    print(Questions[question_num])
+    for choice in Choices[question_num]:
+        print(choice)
+    guess = input("Enter (a, b, c, d): ").lower()
+    Guesses.append(guess)
+    if guess == Answers[question_num]:
+        Score += 1
+        print("~~~~~~~~")
+        print("Correct")
+        print("~~~~~~~~")
+    else:
+        print("~~~~~~~~~")
+        print("Incorrect")
+        print("~~~~~~~~~")  
+        print(f"{Answers[question_num]} is the correct answer")
+        print("~~~~~~~~~")
+
+print("Results:")
+print("Score:", Score, "/", Question_num)
+print("Answers:", Answers)
