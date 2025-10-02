@@ -1,0 +1,59 @@
+#To-Do List
+
+def add_task(task, task_list):
+    """Add a task to the to-do list."""
+    task_list.append(task)
+    print(f'Task "{task}" added.')
+
+def remove_task(task, task_list):
+    """Remove a task from the to-do list."""
+    if task in task_list:
+        task_list.remove(task)
+        print(f'Task "{task}" removed.')
+    else:
+        print(f'Task "{task}" not found in the list.')
+
+def view_tasks(task_list):
+    """View all tasks in the to-do list."""
+    if task_list:
+        print("To-Do List:")
+        for idx, task in enumerate(task_list, start=1):
+            print(f"{idx}. {task}")
+    else:
+        print("Your to-do list is empty.")
+
+task_list = []
+
+while True:
+    print("\nTo-Do List Menu:")
+    print("----------------")
+    print("1. Add Task")
+    print("2. Remove Task")
+    print("3. View Tasks")
+    print("4. Exit")
+    print("----------------")
+    choice = input("Choose an option (1-4): ")
+    
+    if choice == '1':
+        print("---------------")
+        task = input("Enter the task to add: ")
+        add_task(task, task_list)
+        
+    elif choice == '2':
+        print("---------------")
+        task = input("Enter the task to remove: ")
+        remove_task(task, task_list)
+
+    elif choice == '3':
+        print("---------------")
+        view_tasks(task_list)
+
+    elif choice == '4':
+        print("---------------")
+        print("Exiting the to-do list application.")
+        break
+
+    else:
+        print("---------------")     
+        print("Invalid choice. Please select a valid option.")
+    
