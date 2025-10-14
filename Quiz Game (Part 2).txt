@@ -1,0 +1,42 @@
+# Quiz Game (Part 2)
+quiz_questions = {
+    "What is 6 + 7?": ["13", "thirteen", "Thirteen"],
+    "What day is halloween?": ["31", "31st", "thirty first", "Thirty First", "Thirty first", "thirty-first", "Thirty-First", "Thirty-first", "thirty one", "Thirty One", "Thirty one", "thirty-one", "Thirty-One", "Thirty-one"], 
+    "what grade would an 11 year old be in?": ["6", "six", "Six"],
+    "What is the first perodic element?": ["Hydrogen", "hydrogen", "H", "h"]
+}
+
+print (" ")
+print("Welcome to the Quiz Game!")
+print("Answer the following questions:")
+print (" ")
+
+def run_quiz(questions):
+    score = 0
+    for question, answer in questions.items():
+        user_answer = input(question + " ")
+        # Accept multiple correct answers
+        if any (user_answer.lower() == ans.lower() for ans in answer):
+            print ("-----------")
+            print("Correct!")
+            print ("-----------")
+            score += 1
+        else:
+            print ("-----------")
+            print(f"Wrong! The correct answer is {answer[0]}.")
+            print ("-----------")
+    print(f"Your final score is {score}/{len(questions)}")
+run_quiz(quiz_questions)
+
+def play_again():
+    print(" ")
+    response = input("Do you want to play again? (yes/no): ").lower()
+    if response == 'yes':
+        run_quiz(quiz_questions)
+        play_again()
+    elif response == 'no':
+        print("Thanks for playing!")
+    else:
+        print("Invalid input. Please enter 'yes' or 'no'.")
+        play_again()
+play_again()
