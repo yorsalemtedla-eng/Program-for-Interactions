@@ -1,0 +1,73 @@
+#Personal Introduction
+
+def basic_introduction():
+    
+    print(" ")
+    print("Please answer the following questions:")
+    print("---------------------------------------")
+    name = input("What is your name? ")
+    age = input("How old are you? ")
+    location = input("Where are you from? ")
+    hobby = input("What hobbies do you do when you're bored? ")
+    profession = input("What is your profession? ")
+    fun_fact = input("Tell me a fun fact about yourself: ")
+    return name, age, location, hobby, profession, fun_fact
+
+def style_introduction():
+    
+    print(" ")
+    print("CHOOSE YOUR INTRODUCTION STYLE:")
+    print("---------------------------------------")
+    print("1. Casual")
+    print("2. Professional")
+    print("3. Friendly")
+    print("4. Curious")
+    style_choice = input("choose a number from 1-4: for desired style:")
+    return style_choice
+
+def generate_casual_introduction(name, age, location, hobby, profession, fun_fact):
+    """simple casual introduction"""
+    intro = f"Hey! I'm {name}, a {age}-year-old {profession} from {location}. In my free time, I like to {hobby}. Fun fact about me: {fun_fact}."
+    return intro
+
+def generate_professional_introduction(name, age, location, hobby, profession, fun_fact):
+    """simple professional introduction"""
+    intro = f"Hello, my name is {name}. I am a {age}-year-old {profession} based in {location}. Outside of work, I enjoy {hobby}. An interesting fact about me is that {fun_fact}."
+    return intro
+
+def generate_friendly_introduction(name, age, location, hobby, profession, fun_fact):
+    """simple friendly introduction"""
+    intro = f"Hi there! I'm {name}, a {age}-year-old {profession} from {location}. I love spending my time {hobby}. By the way, did you know that {fun_fact}? Let's chat!"
+    return intro
+
+def generate_curious_introduction(name, age, location, hobby, profession, fun_fact):
+    """simple curious introduction"""
+    intro = f"Greetings! I'm {name}, a {age}-year-old {profession} hailing from {location}. I'm always curious about new hobbies like {hobby}. For your curiosity, {fun_fact}. What about you?"
+    return intro
+
+def get_user_info():
+
+    name, age, location, hobby, profession, fun_fact = basic_introduction()
+    while True:
+        choice = style_introduction()
+        if choice == '1':
+            intro = generate_casual_introduction(name, age, location, hobby, profession, fun_fact)
+            break
+        elif choice == '2':
+            intro = generate_professional_introduction(name, age, location, hobby, profession, fun_fact)
+            break
+        elif choice == '3':
+            intro = generate_friendly_introduction(name, age, location, hobby, profession, fun_fact)
+            break
+        elif choice == '4':
+            intro = generate_curious_introduction(name, age, location, hobby, profession, fun_fact)
+            break
+        else:
+            print("Not valid. Please choose a number from 1 to 4.")
+
+    print("\n Generated Introduction:")
+    print(intro)
+    return intro
+
+if __name__ == "__main__":
+    get_user_info()
